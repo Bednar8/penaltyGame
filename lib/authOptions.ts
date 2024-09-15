@@ -36,6 +36,8 @@ export const authOptions: NextAuthOptions = {
 				// session.user.image = dbUser.image || null
 				// session.user.emailVerified = dbUser.emailVerified || null
 				session.user.club = dbUser.club || null // Zakładamy, że club istnieje
+				session.user.player = dbUser.player || null // Zakładamy, że club istnieje
+				session.user.record = dbUser.record || null // Zakładamy, że club istnieje
 			}
 
 			return session // Zwróć sesję z dodatkowymi informacjami

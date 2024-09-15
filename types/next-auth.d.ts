@@ -9,6 +9,8 @@ declare module "next-auth" {
 			image: string | null
 			emailVerified: boolean | null
 			club: string | null
+			record: number | null
+			player: object | null
 		}
 	}
 
@@ -19,5 +21,7 @@ declare module "next-auth" {
 		image: string | null
 		emailVerified: boolean | null
 		club: string | null
+		record: number | null
+		player: object | null
 	}
 }

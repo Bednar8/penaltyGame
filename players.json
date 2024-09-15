@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Lionel Messi",
+		"club": "Paris Saint-Germain"
+	},
+	{
+		"name": "Neymar Jr",
+		"club": "Paris Saint-Germain"
+	},
+	{
+		"name": "Kylian Mbappé",
+		"club": "Paris Saint-Germain"
+	},
+	{
+		"name": "Cristiano Ronaldo",
+		"club": "Manchester United"
+	},
+	{
+		"name": "Bruno Fernandes",
+		"club": "Manchester United"
+	},
+	{
+		"name": "Marcus Rashford",
+		"club": "Manchester United"
+	},
+	{
+		"name": "Robert Lewandowski",
+		"club": "FC Barcelona"
+	},
+	{
+		"name": "Ansu Fati",
+		"club": "FC Barcelona"
+	},
+	{
+		"name": "Pedri",
+		"club": "FC Barcelona"
+	}
+]
