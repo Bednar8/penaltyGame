@@ -1,9 +1,20 @@
 "use client"
 
 import {useSession} from "next-auth/react"
-import Club from "../../../components/Club"
+// import {getClubs} from "@/lib/getClubs"
 
 export default function ClubsPage() {
+	// const clubs = await getClubs()
 	const {data: session} = useSession()
-	return <>{session ? <Club /> : <button>YOU ARE NOT LOGGED</button>}</>
+	return (
+		<>
+			{session ? (
+				<>
+					<div>laal</div>
+				</>
+			) : (
+				<button>YOU ARE NOT LOGGED</button>
+			)}
+		</>
+	)
 }
