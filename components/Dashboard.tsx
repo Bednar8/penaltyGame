@@ -20,7 +20,7 @@ const Dashboard = () => {
 					/>
 					<div>{session?.user?.name}</div>
 					<h1>Session</h1>
-					<Link href="/clubs">Choose your club</Link>
+					<Link href="/club-picker">Choose your club</Link>
 					<button onClick={() => signOut()}>Sign out</button>
 				</>
 			) : (
