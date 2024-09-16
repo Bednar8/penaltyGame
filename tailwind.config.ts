@@ -13,7 +13,7 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				background: "var(--background)",
+				"color-dark": "var(--color-dark)",
 				foreground: "var(--foreground)",
 			},
 		},

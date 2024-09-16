@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from "react"
 import {signOut, useSession} from "next-auth/react"
+import Link from "next/link"
 
 interface Player {
 	name: string
@@ -50,7 +51,12 @@ export default function PlayerPicker() {
 	}
 
 	if (!session) {
-		return <p>Proszę się zalogować, aby zmienić kolor.</p>
+		return (
+			<div>
+				<p>Proszę się zalogować</p>
+				<Link href={"/"}>Strona głowna</Link>
+			</div>
+		)
 	}
 
 	return (
