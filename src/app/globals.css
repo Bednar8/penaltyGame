@@ -8,7 +8,7 @@
 }
 
 body {
-	background-image: url(/main-background.webp);
+	background-image: url(/img/main-background.webp);
 	background-size: cover;
 	color: var(--color-white);
 }

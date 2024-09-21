@@ -8,29 +8,31 @@ import {useEffect, useState} from "react"
 type Club = {
 	_id: string
 	name: string
+	image: string
 }
 
 export default function Home() {
 	const {data: session} = useSession()
-	const [clubs, setClubs] = useState<Club[]>([])
+	const [curClub, setCurClub] = useState<Club[]>([])
 
 	useEffect(() => {
-		async function fetchClubs() {
+		async function saveClub() {
 			const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/clubs`)
 			const clubs = await res.json()
 			console.log(clubs)
-			setClubs(clubs)
+			setCurClub(clubs)
 		}
 
-		fetchClubs()
+		saveClub()
 	}, [])
 	return (
 		<main className="flex justify-center items-center h-screen">
-			<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-[600px] flex justify-center items-center rounded-lg">
+			<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 flex justify-center items-center rounded-lg">
 				{session ? (
-					<div className="z-20 relative">
+					<div className="z-20 relative w-full">
 						<Clubs />
-						<button onClick={() => signOut()}>Sign out</button>
+						<button onClick={() => signOut()}>Wyloguj się</button>
+						<button className="ml-6">Zapisz</button>
 					</div>
 				) : (
 					<Dashboard />

@@ -1,6 +1,7 @@
 import type {Metadata} from "next"
 import "./globals.css"
 import SessionWrapper from "../../components/SessionWrapper"
+import {ReactQueryClientProvider} from "@/components/ReactQueryClientProvider"
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,9 +15,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<SessionWrapper>
-			<html lang="en">
-				<body>{children}</body>
-			</html>
+			<ReactQueryClientProvider>
+				<html lang="en">
+					<body>{children}</body>
+				</html>
+			</ReactQueryClientProvider>
 		</SessionWrapper>
 	)
 }

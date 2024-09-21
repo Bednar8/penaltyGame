@@ -6,6 +6,7 @@ import {useEffect, useState} from "react"
 type Club = {
 	_id: string
 	name: string
+	image: string
 }
 
 function Clubs() {
@@ -23,9 +24,9 @@ function Clubs() {
 	}, [])
 
 	return (
-		<div>
+		<div className="flex justify-evenly w-full">
 			{clubs.map((club) => (
-				<Club key={club._id} name={club.name} />
+				<Club key={club._id} name={club.name} image={club.image} />
 			))}
 		</div>
 	)
