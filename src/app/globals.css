@@ -8,6 +8,7 @@
 }
 
 body {
-	background-color: var(--color-dark);
+	background-image: url(/main-background.webp);
+	background-size: cover;
 	color: var(--color-white);
 }

@@ -1,5 +1,6 @@
 "use client"
 
+import Clubs from "@/components/custom/Clubs"
 import Dashboard from "../../components/Dashboard"
 import {signOut, useSession} from "next-auth/react"
 import {useEffect, useState} from "react"
@@ -7,35 +8,34 @@ import {useEffect, useState} from "react"
 type Club = {
 	_id: string
 	name: string
-	club: string
 }
+
 export default function Home() {
 	const {data: session} = useSession()
-	const [players, setPlayers] = useState<Club[]>([])
+	const [clubs, setClubs] = useState<Club[]>([])
 
 	useEffect(() => {
-		async function fetchPlayers() {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/players`)
+		async function fetchClubs() {
+			const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/clubs`)
 			const clubs = await res.json()
-			setPlayers(clubs)
+			console.log(clubs)
+			setClubs(clubs)
 		}
 
-		fetchPlayers()
+		fetchClubs()
 	}, [])
 	return (
-		<main>
-			{session ? (
-				<div>
-					{players.map((club) => (
-						<div className="text-color-dark bg-white" key={club._id}>
-							{club.name}
-						</div>
-					))}
-					<button onClick={() => signOut()}>Sign out</button>
-				</div>
-			) : (
-				<Dashboard />
-			)}
+		<main className="flex justify-center items-center h-screen">
+			<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-[600px] flex justify-center items-center rounded-lg">
+				{session ? (
+					<div className="z-20 relative">
+						<Clubs />
+						<button onClick={() => signOut()}>Sign out</button>
+					</div>
+				) : (
+					<Dashboard />
+				)}
+			</div>
 		</main>
 	)
 }

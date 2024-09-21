@@ -18,6 +18,5 @@ export async function getPlayers() {
 export async function getClubs() {
 	const data = await connectDb()
 	const clubs = data.map((club) => club)
-	console.log(clubs)
 	return clubs
 }
