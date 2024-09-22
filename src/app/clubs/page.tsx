@@ -1,20 +1,21 @@
 "use client"
 
-import {useSession} from "next-auth/react"
-// import {getClubs} from "@/lib/getClubs"
+import Clubs from "@/components/custom/Clubs"
+import {signOut, useSession} from "next-auth/react"
+import {useEffect, useState} from "react"
 
 export default function ClubsPage() {
-	// const clubs = await getClubs()
 	const {data: session} = useSession()
+
+	if (!session) {
+		return <p>Proszę się zalogować, aby zmienić klub.</p>
+	}
+
 	return (
-		<>
-			{session ? (
-				<>
-					<div>laal</div>
-				</>
-			) : (
-				<button>YOU ARE NOT LOGGED</button>
-			)}
-		</>
+		<div>
+			{JSON.stringify(session)}
+			<h1>Wybierz swój klub</h1>
+			<Clubs />
+		</div>
 	)
 }

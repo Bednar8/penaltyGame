@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 	const {club} = await req.json() // Pobierz nowy kolor z ciała żądania
 
 	if (!club) {
-		return NextResponse.json({message: "Kolor jest wymagany."}, {status: 400})
+		return NextResponse.json({message: "Klub jest wymagany."}, {status: 400})
 	}
 
 	const dbClient: MongoClient = await client.connect()
@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 	// Zaktualizuj kolor użytkownika na podstawie jego adresu email
 	const result = await usersCollection.updateOne(
 		{email: session.user?.email}, // Szukaj użytkownika po emailu z sesji
-		{$set: {club: club}} // Zaktualizuj pole "color"
+		{$set: {club: club}} // Zaktualizuj pole "club"
 	)
 
 	if (result.matchedCount === 0) {
@@ -35,5 +35,5 @@ export async function POST(req: Request) {
 		)
 	}
 
-	return NextResponse.json({message: "Kolor zaktualizowany."}, {status: 200})
+	return NextResponse.json({message: "Klub zaktualizowany."}, {status: 200})
 }

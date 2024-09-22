@@ -17,7 +17,13 @@ export default function RootLayout({
 		<SessionWrapper>
 			<ReactQueryClientProvider>
 				<html lang="en">
-					<body>{children}</body>
+					<body>
+						<main className="flex justify-center items-center h-screen">
+							<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 rounded-lg">
+								{children}
+							</div>
+						</main>
+					</body>
 				</html>
 			</ReactQueryClientProvider>
 		</SessionWrapper>
