@@ -1,6 +1,6 @@
 "use client"
 
-import {signIn, signOut, useSession} from "next-auth/react"
+import {signOut, useSession} from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -16,10 +16,10 @@ const Dashboard = () => {
 						<Image
 							src={session?.user?.image as string}
 							alt="Profile Image"
-							width={100}
-							height={100}
+							width={30}
+							height={30}
 						/>
-						<div>{session?.user?.name}</div>
+						<div>Hej {session?.user?.name}!</div>
 						<h1>Session</h1>
 						<Link href="/club-picker">Choose your club</Link>
 						<Link href="/record-picker">Select your record</Link>
@@ -27,15 +27,7 @@ const Dashboard = () => {
 						<button onClick={() => signOut()}>Sign out</button>
 					</>
 				) : (
-					<>
-						<h1>Please log in</h1>
-						<button onClick={() => signIn("google")}>
-							Sign in with google
-						</button>
-						<button onClick={() => signIn("github")}>
-							Sign in with github
-						</button>
-					</>
+					<></>
 				)}
 			</div>
 		</>
