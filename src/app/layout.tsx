@@ -1,7 +1,8 @@
 import type {Metadata} from "next"
 import "./globals.css"
-import SessionWrapper from "../../components/SessionWrapper"
-import {ReactQueryClientProvider} from "@/components/ReactQueryClientProvider"
+import SessionWrapper from "../components/SessionWrapper"
+import {ReactQueryClientProvider} from "@/src/components/ReactQueryClientProvider"
+import {ClubsProvider} from "./context/ClubsContext"
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -16,15 +17,17 @@ export default function RootLayout({
 	return (
 		<SessionWrapper>
 			<ReactQueryClientProvider>
-				<html lang="en">
-					<body>
-						<main className="flex justify-center items-center h-screen">
-							<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 rounded-lg">
-								{children}
-							</div>
-						</main>
-					</body>
-				</html>
+				<ClubsProvider>
+					<html lang="en">
+						<body>
+							<main className="flex justify-center items-center h-screen">
+								<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 rounded-lg">
+									{children}
+								</div>
+							</main>
+						</body>
+					</html>
+				</ClubsProvider>
 			</ReactQueryClientProvider>
 		</SessionWrapper>
 	)

@@ -6,10 +6,12 @@ import {useEffect, useState} from "react"
 import {fetchClubs} from "@/src/app/api/fetch/fetchClubs"
 import Club from "../ui/Club"
 import {useSession} from "next-auth/react"
+import {useClubsContext} from "@/src/app/context/ClubsContext"
 
 function Clubs() {
 	const {data: session} = useSession()
 	const [currentClub, setCurrentClub] = useState(session?.user?.club)
+	const {handleSaveClub} = useClubsContext()
 	const {
 		data: clubs,
 		isLoading,
@@ -21,27 +23,6 @@ function Clubs() {
 
 	const handleChooseClub = (id: string) => {
 		setCurrentClub(id)
-		console.log(currentClub)
-	}
-
-	const handleSaveClub = async () => {
-		const res = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/api/users/club`,
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({club: currentClub}),
-			}
-		)
-
-		if (res.ok) {
-			alert("Klub został zapisany!")
-		} else {
-			console.log({currentClub})
-			alert("Błąd podczas zapisywania klubu.")
-		}
 	}
 
 	if (isLoading) return <p>Loading clubs...</p>
@@ -59,7 +40,7 @@ function Clubs() {
 					onClick={handleChooseClub}
 				/>
 			))}
-			<button onClick={handleSaveClub}>Zapisz klub</button>
+			<button onClick={() => handleSaveClub(currentClub)}>Zapisz klub</button>
 		</div>
 	)
 }

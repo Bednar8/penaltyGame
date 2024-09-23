@@ -1,8 +1,8 @@
 "use client"
 
-import Dashboard from "../../components/custom/Dashboard"
+import Dashboard from "../components/custom/Dashboard"
 import {useSession} from "next-auth/react"
-import SignIn from "@/components/custom/SignIn"
+import SignIn from "@/src/components/custom/SignIn"
 
 export default function Home() {
 	const {data: session} = useSession()

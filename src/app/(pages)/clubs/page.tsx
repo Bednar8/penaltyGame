@@ -1,6 +1,6 @@
 "use client"
 
-import Clubs from "@/components/custom/Clubs"
+import Clubs from "@/src/components/custom/Clubs"
 import {signOut, useSession} from "next-auth/react"
 import {useEffect, useState} from "react"
 
