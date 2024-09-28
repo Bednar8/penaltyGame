@@ -1,4 +1,4 @@
-import {useClubContext} from "@/src/app/context/ClubContext"
+import {usePlayerContext} from "@/src/app/context/PlayersContext"
 import Image from "next/image"
 
 interface ClubProps {
@@ -8,15 +8,15 @@ interface ClubProps {
 	onClick: (_id: string) => void
 }
 
-function Club({id, name, image, onClick}: ClubProps) {
+function Player({id, name, image, onClick}: ClubProps) {
 	// console.log(userClub)
-	const {currentClubId} = useClubContext()
-	console.log(currentClubId)
+	const {currentPlayerId} = usePlayerContext()
+	console.log(currentPlayerId)
 	return (
 		<button
 			className="flex flex-col justify-center items-center"
 			onClick={() => onClick(id)}>
-			{currentClubId && currentClubId === id ? (
+			{currentPlayerId && currentPlayerId === id ? (
 				<p className="text-red-500 font-semibold">{name}</p>
 			) : (
 				<p>{name}</p>
@@ -28,4 +28,4 @@ function Club({id, name, image, onClick}: ClubProps) {
 	)
 }
 
-export default Club
+export default Player

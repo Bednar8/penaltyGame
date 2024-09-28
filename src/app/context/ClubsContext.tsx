@@ -5,7 +5,7 @@ import {createContext, useState, ReactNode, useContext} from "react"
 
 // Typy dla kontekstu
 interface ClubContextType {
-	club: string | undefined
+	clubId: string | undefined
 	handleSaveClub: (club: string) => void
 }
 
@@ -13,9 +13,9 @@ interface ClubContextType {
 const ClubsContext = createContext<ClubContextType | undefined>(undefined)
 
 export const ClubsProvider = ({children}: {children: ReactNode}) => {
-	const [club, setClub] = useState<string | undefined>()
+	const [clubId, setClubId] = useState<string | undefined>()
 
-	const handleSaveClub = async (club: string) => {
+	const handleSaveClub = async (clubId: string) => {
 		try {
 			const res = await fetch(
 				`${process.env.NEXT_PUBLIC_API_URL}/api/users/club`,
@@ -24,12 +24,13 @@ export const ClubsProvider = ({children}: {children: ReactNode}) => {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({club: club}),
+					body: JSON.stringify({club: clubId}),
 				}
 			)
 
 			if (res.ok) {
 				alert("Klub został zapisany!")
+				setClubId(clubId)
 			}
 		} catch (error) {
 			console.log(error)
@@ -38,7 +39,7 @@ export const ClubsProvider = ({children}: {children: ReactNode}) => {
 	}
 
 	return (
-		<ClubsContext.Provider value={{handleSaveClub, club}}>
+		<ClubsContext.Provider value={{handleSaveClub, clubId}}>
 			{children}
 		</ClubsContext.Provider>
 	)

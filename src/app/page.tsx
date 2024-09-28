@@ -5,7 +5,11 @@ import {useSession} from "next-auth/react"
 import SignIn from "@/src/components/custom/SignIn"
 
 export default function Home() {
-	const {data: session} = useSession()
+	const {data: session, status} = useSession()
 
-	return <div>{session ? <Dashboard /> : <SignIn />}</div>
+	if (status === "loading") {
+		return <div>Ładowanie...</div>
+	}
+
+	return <>{session ? <Dashboard /> : <SignIn />}</>
 }

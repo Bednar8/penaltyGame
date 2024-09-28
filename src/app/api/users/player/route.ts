@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
 	const dbClient: MongoClient = await client.connect()
 	const db = dbClient.db("PenaltyGame")
-	const usersCollection = db.collection("gameData")
+	const usersCollection = db.collection("users")
 
 	// Zaktualizuj kolor użytkownika na podstawie jego adresu email
 	const result = await usersCollection.updateOne(

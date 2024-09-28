@@ -3,6 +3,8 @@ import "./globals.css"
 import SessionWrapper from "../components/SessionWrapper"
 import {ReactQueryClientProvider} from "@/src/components/ReactQueryClientProvider"
 import {ClubsProvider} from "./context/ClubsContext"
+import {ClubProvider} from "./context/ClubContext"
+import {PlayerProvider} from "./context/PlayersContext"
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -18,15 +20,19 @@ export default function RootLayout({
 		<SessionWrapper>
 			<ReactQueryClientProvider>
 				<ClubsProvider>
-					<html lang="en">
-						<body>
-							<main className="flex justify-center items-center h-screen">
-								<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 rounded-lg">
-									{children}
-								</div>
-							</main>
-						</body>
-					</html>
+					<ClubProvider>
+						<PlayerProvider>
+							<html lang="en">
+								<body>
+									<main className="flex justify-center items-center h-screen">
+										<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 rounded-lg">
+											{children}
+										</div>
+									</main>
+								</body>
+							</html>
+						</PlayerProvider>
+					</ClubProvider>
 				</ClubsProvider>
 			</ReactQueryClientProvider>
 		</SessionWrapper>
