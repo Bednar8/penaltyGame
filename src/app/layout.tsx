@@ -5,6 +5,8 @@ import {ReactQueryClientProvider} from "@/src/components/ReactQueryClientProvide
 import {ClubsProvider} from "./context/ClubsContext"
 import {ClubProvider} from "./context/ClubContext"
 import {PlayerProvider} from "./context/PlayersContext"
+import Header from "../components/custom/Header"
+import Footer from "../components/custom/Footer"
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -23,12 +25,10 @@ export default function RootLayout({
 					<ClubProvider>
 						<PlayerProvider>
 							<html lang="en">
-								<body>
-									<main className="flex justify-center items-center h-screen">
-										<div className="bg-[#00000084] z-10 relative backdrop-blur-md h-3/4 w-3/4 rounded-lg">
-											{children}
-										</div>
-									</main>
+								<body className="h-screen">
+									<Header />
+									<main>{children}</main>
+									<Footer />
 								</body>
 							</html>
 						</PlayerProvider>

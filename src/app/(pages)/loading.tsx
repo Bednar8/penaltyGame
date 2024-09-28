@@ -1,3 +1,5 @@
+import Spinner from "@/src/components/ui/Spinner"
+
 export default function Loading() {
-	return <div>LOADING...</div>
+	return <Spinner />
 }

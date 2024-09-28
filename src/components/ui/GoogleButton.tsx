@@ -1,10 +1,11 @@
 import {signIn} from "next-auth/react"
-
+// hover:bg-[#111111]
+// bg-[#131314]
 function GoogleButton() {
 	return (
 		<button
 			onClick={() => signIn("google")}
-			className="flex items-center gap-4 bg-[#131314] text-[#dddddd] px-3 py-2 rounded-md hover:bg-[#111111] transition-colors font-medium">
+			className="flex items-center gap-4 bg-[#1a1a1b]  text-[#dddddd] px-3 py-2 rounded-md hover:bg-[#222223] transition-colors font-medium">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 48 48"

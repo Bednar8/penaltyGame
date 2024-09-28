@@ -11,6 +11,7 @@ import Link from "next/link"
 import {useClubContext} from "@/src/app/context/ClubContext"
 import Player from "../ui/Player"
 import {usePlayerContext} from "@/src/app/context/PlayersContext"
+import Button from "../ui/Button"
 
 interface PlayerType {
 	_id: string
@@ -27,28 +28,23 @@ function Players() {
 	console.log(players)
 
 	return (
-		<div className="flex justify-evenly w-full">
-			{players?.map((player: PlayerType) => (
-				<Player
-					id={player._id}
-					key={player._id}
-					name={player.name}
-					image={player.image}
-					onClick={handleChoosePlayer}
-				/>
-			))}
-			<button onClick={() => handleSavePlayer(currentPlayerId)}>
-				Zapisz piłkarza
-			</button>
-			{/* {clubId || currentClub ? (
-				<Link href="/players" aria-disabled="true">
-					Wybierz piłkarza
-				</Link>
-			) : (
-				<span className="text-gray-400 cursor-not-allowed">
-					Wybierz piłkarza
-				</span>
-			)} */}
+		<div className="flex flex-col h-full justify-between">
+			<div className="flex justify-evenly items-center">
+				{players?.map((player: PlayerType) => (
+					<Player
+						id={player._id}
+						key={player._id}
+						name={player.name}
+						image={player.image}
+						onClick={handleChoosePlayer}
+					/>
+				))}
+			</div>
+			<div className="text-center">
+				<Button onClick={() => handleSavePlayer(currentPlayerId)}>
+					Zapisz piłkarza
+				</Button>
+			</div>
 		</div>
 	)
 }

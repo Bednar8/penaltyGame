@@ -13,18 +13,20 @@ function Club({id, name, image, onClick}: ClubProps) {
 	const {currentClubId} = useClubContext()
 	console.log(currentClubId)
 	return (
-		<button
-			className="flex flex-col justify-center items-center"
-			onClick={() => onClick(id)}>
-			{currentClubId && currentClubId === id ? (
-				<p className="text-red-500 font-semibold">{name}</p>
-			) : (
-				<p>{name}</p>
-			)}
-			{image && (
-				<Image width={100} height={100} src={image} alt={`${name} logo`} />
-			)}
-		</button>
+		<div>
+			<button
+				className="flex flex-col justify-center items-center"
+				onClick={() => onClick(id)}>
+				{currentClubId && currentClubId === id ? (
+					<p className="text-red-500 font-semibold">{name}</p>
+				) : (
+					<p>{name}</p>
+				)}
+				{image && (
+					<Image width={100} height={100} src={image} alt={`${name} logo`} />
+				)}
+			</button>
+		</div>
 	)
 }
 

@@ -13,11 +13,9 @@ export default function ClubsPage() {
 	}
 
 	return (
-		<div>
-			{JSON.stringify(session)}
-			<h1>Wybierz swój klub</h1>
+		<div className="flex flex-col h-full">
+			<h1 className="text-center text-2xl mb-10">Wybierz swój klub</h1>
 			<Clubs />
-			<Link href="/">Strona główna</Link>
 		</div>
 	)
 }

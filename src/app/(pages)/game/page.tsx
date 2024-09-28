@@ -11,12 +11,11 @@ export default function ClubsPage() {
 	}
 
 	return (
-		<>
+		<div className="flex flex-col h-full justify-center items-center">
 			<h1 className="text-2xl text-center">
 				Pokaż na co Cię stać ale nie jeden raz
 			</h1>
-			<canvas className="w-full h-full bg-slate-50 rounded-lg"></canvas>
-			<Link href="/">Strona główna</Link>
-		</>
+			<canvas className="w-full max-w-[1000px] h-auto bg-slate-50 rounded-lg"></canvas>
+		</div>
 	)
 }

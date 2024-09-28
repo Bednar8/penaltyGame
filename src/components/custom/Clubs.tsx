@@ -9,6 +9,8 @@ import {useSession} from "next-auth/react"
 import {useClubsContext} from "@/src/app/context/ClubsContext"
 import Link from "next/link"
 import {useClubContext} from "@/src/app/context/ClubContext"
+import Button from "../ui/Button"
+import Spinner from "../ui/Spinner"
 
 function Clubs() {
 	const {data: session} = useSession()
@@ -24,30 +26,34 @@ function Clubs() {
 		queryFn: fetchClubs,
 	})
 
-	if (isLoading) return <p>Loading clubs...</p>
+	if (isLoading) return <Spinner />
 	if (error instanceof Error) return <p>Error: {error.message}</p>
 
 	return (
-		<div className="flex justify-evenly w-full">
-			{clubs?.map((club) => (
-				<Club
-					id={club._id}
-					key={club._id}
-					name={club.name}
-					image={club.image}
-					onClick={handleChooseClub}
-				/>
-			))}
-			<button onClick={() => handleSaveClub(currentClubId)}>Zapisz klub</button>
-			{clubId || currentClub ? (
-				<Link href="/players" aria-disabled="true">
-					Wybierz piłkarza
-				</Link>
+		<div className="flex flex-col h-full justify-between">
+			<div className="flex flex-wrap items-center justify-evenly">
+				{clubs?.map((club) => (
+					<Club
+						id={club._id}
+						key={club._id}
+						name={club.name}
+						image={club.image}
+						onClick={handleChooseClub}
+					/>
+				))}
+			</div>
+			<div className="text-center">
+				<Button type="primary" onClick={() => handleSaveClub(currentClubId)}>
+					Zapisz klub
+				</Button>
+			</div>
+			{/* {clubId || currentClub ? (
+				<Link href="/players">Wybierz piłkarza</Link>
 			) : (
 				<span className="text-gray-400 cursor-not-allowed">
 					Wybierz piłkarza
 				</span>
-			)}
+			)} */}
 		</div>
 	)
 }

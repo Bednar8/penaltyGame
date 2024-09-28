@@ -14,6 +14,7 @@ const config: Config = {
 		extend: {
 			colors: {
 				"color-dark": "var(--color-dark)",
+				"color-main": "var(--color-main)",
 				foreground: "var(--foreground)",
 			},
 		},

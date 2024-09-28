@@ -5,26 +5,24 @@ import {usePlayerContext} from "@/src/app/context/PlayersContext"
 import {signOut, useSession} from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
+import Button from "../ui/Button"
+import Spinner from "../ui/Spinner"
 
 // import React from "react"
 
 const Dashboard = () => {
-	const {data: session} = useSession()
+	const {data: session, status} = useSession()
 	const {currentClub} = useClubContext()
 	const {currentPlayer} = usePlayerContext()
 
+	if (status === "loading") {
+		return <Spinner />
+	}
 	return (
 		<>
 			<div className="z-20 relative h-full">
 				{session ? (
 					<>
-						<Image
-							src={session?.user?.image as string}
-							alt="Profile Image"
-							width={30}
-							height={30}
-						/>
-						<div>Hej {session?.user?.name}!</div>
 						{currentClub?.name ? (
 							<div>
 								<div className="flex">
@@ -80,9 +78,7 @@ const Dashboard = () => {
 							className="bg-green-300 text-color-dark p-3 inline-block mt-4">
 							Graj
 						</Link>
-						<button onClick={() => signOut()} className="text-blue-500">
-							Wyloguj się
-						</button>
+						<Button onClick={() => signOut()}>Wyloguj się</Button>
 					</>
 				) : (
 					<></>
