@@ -12,6 +12,7 @@ interface PlayerContextType {
 	currentPlayer: PlayerType | undefined
 	currentPlayerId: string | undefined
 	handleChoosePlayer: (id: string) => void
+	handleSavePlayer: (id: string) => void
 }
 
 interface PlayerType {
@@ -25,7 +26,6 @@ const PlayerContext = createContext<PlayerContextType | undefined>(undefined)
 
 export const PlayerProvider = ({children}: {children: ReactNode}) => {
 	const {data: session} = useSession()
-	// const {playerId} = useClubsContext()
 	const [currentPlayer, setCurrentPlayer] = useState<PlayerType>()
 	const [currentPlayerId, setCurrentPlayerId] = useState<string>()
 
@@ -46,6 +46,7 @@ export const PlayerProvider = ({children}: {children: ReactNode}) => {
 				alert("Piłkarz został zapisany!")
 				// setCurrentPlayer()
 				setCurrentPlayerId(playerId)
+				fetchCurrentPlayer()
 			}
 		} catch (error) {
 			console.log(error)
@@ -59,9 +60,8 @@ export const PlayerProvider = ({children}: {children: ReactNode}) => {
 
 			const curPlayer = currentPlayerId
 				? players.filter((curPlayer) => curPlayer._id === currentPlayerId)
-				: players.filter((club) => club._id === session?.user?.player)
+				: players.filter((player) => player._id === session?.user?.player)
 
-			console.log(curPlayer[0])
 			setCurrentPlayer(curPlayer[0])
 			setCurrentPlayerId(curPlayer[0]._id)
 		} catch (error) {
@@ -72,20 +72,12 @@ export const PlayerProvider = ({children}: {children: ReactNode}) => {
 
 	useEffect(() => {
 		// Uruchom fetchCurrentClub, jeśli jest dostępna sesja lub klub
-		if (session || currentPlayerId) {
+		if (session) {
 			fetchCurrentPlayer()
 		}
-	}, [session, currentPlayerId])
-
-	// useEffect(() => {
-	// 	// Uruchom fetchCurrentClub, jeśli jest dostępna sesja lub klub
-	// 	if (session || clubId) {
-	// 		fetchCurrentClub()
-	// 	}
-	// }, [session, clubId])
+	}, [session])
 
 	const handleChoosePlayer = (id: string) => {
-		console.log(id)
 		setCurrentPlayerId(id)
 	}
 

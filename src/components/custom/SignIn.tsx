@@ -8,7 +8,7 @@ function SignIn() {
 		<div>
 			<Heading>PenaltyGame</Heading>
 			<div className="flex flex-col justify-center items-center h-full ">
-				<div className="flex flex-col  w-full max-w-[500px] h-[400px] justify-center items-center bg-[#0000004b] rounded-xl gap-4 sign-in-box">
+				<div className="flex flex-col  w-full max-w-[500px] h-[400px] justify-center items-center bg-[#000000d9] rounded-xl gap-4 sign-in-box">
 					<Heading type="secondary">Zaloguj się aby zagrać</Heading>
 					<GoogleButton />
 					<p className="border-y border-gray-400 w-full text-center py-2">

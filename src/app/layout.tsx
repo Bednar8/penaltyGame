@@ -26,9 +26,11 @@ export default function RootLayout({
 						<PlayerProvider>
 							<html lang="en">
 								<body className="h-screen">
-									<Header />
-									<main>{children}</main>
-									<Footer />
+									<div className="background">
+										<Header />
+										<main>{children}</main>
+										<Footer />
+									</div>
 								</body>
 							</html>
 						</PlayerProvider>

@@ -1,17 +1,10 @@
 // "use client"
 
-import {useQuery} from "@tanstack/react-query"
-import {ClubType} from "@/types/club"
-import {useEffect, useState} from "react"
-import {fetchClubs} from "@/src/app/api/fetch/fetchClubs"
-import Club from "../ui/Club"
-import {useSession} from "next-auth/react"
-import {useClubsContext} from "@/src/app/context/ClubsContext"
-import Link from "next/link"
 import {useClubContext} from "@/src/app/context/ClubContext"
 import Player from "../ui/Player"
 import {usePlayerContext} from "@/src/app/context/PlayersContext"
 import Button from "../ui/Button"
+import {useEffect, useState} from "react"
 
 interface PlayerType {
 	_id: string
@@ -25,7 +18,6 @@ function Players() {
 		usePlayerContext()
 
 	const players = currentClub?.players
-	console.log(players)
 
 	return (
 		<div className="flex flex-col h-full justify-between">

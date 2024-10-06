@@ -17,9 +17,7 @@ const Button: FC<ButtonProps> = ({
 		<button
 			onClick={onClick}
 			disabled={disabled}
-			className={`${
-				type === "primary" ? "bg-color-main text-color-dark " : ""
-			} ${
+			className={`${type === "primary" ? "bg-color-main text-white" : ""} ${
 				disabled ? "bg-slate-500 cursor-not-allowed" : ""
 			} py-1 px-4 rounded-md button`}>
 			{children}

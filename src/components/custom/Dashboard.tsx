@@ -7,6 +7,8 @@ import Image from "next/image"
 import Link from "next/link"
 import Button from "../ui/Button"
 import Spinner from "../ui/Spinner"
+import CurrentClub from "./CurrentClub"
+import CurrentPlayer from "./CurrentPlayer"
 
 // import React from "react"
 
@@ -19,72 +21,24 @@ const Dashboard = () => {
 		return <Spinner />
 	}
 	return (
-		<>
-			<div className="z-20 relative h-full">
-				{session ? (
-					<>
-						{currentClub?.name ? (
-							<div>
-								<div className="flex">
-									<p>Twój obecny klub: {currentClub?.name} </p>
-									<Image
-										src={currentClub.image}
-										width={40}
-										height={40}
-										alt={currentClub.name}
-									/>
-								</div>
+		<div className="z-20 relative h-full flex flex-col justify-between">
+			{session ? (
+				<>
+					<div className="flex justify-center items-center gap-16 mt-8">
+						<CurrentClub currentClub={currentClub} />
+						<CurrentPlayer currentPlayer={currentPlayer} />
+					</div>
 
-								<Link href="/clubs" className="text-red-500">
-									Zmień klub
-								</Link>
-							</div>
-						) : (
-							<>
-								<p>Nie masz jeszcze klubu</p>
-								<Link href="/clubs" className="text-red-500">
-									Wybierz klub
-								</Link>
-							</>
-						)}
-						{currentPlayer?.name ? (
-							<>
-								<p>Twój piłkarz: {currentPlayer?.name}</p>
-								<Link href="/players" className="text-red-500">
-									Zmień piłkarza
-								</Link>
-							</>
-						) : (
-							<>
-								<p>Nie masz jeszcze piłkarza</p>
-								<Link href="/players" className="text-red-500">
-									Wybierz piłkarza
-								</Link>
-							</>
-						)}
-
-						{/* <Link href="/record-picker" className="text-red-500">
-							Select your record
-						</Link> */}
-						<h2 className="font-bold">Funkcje do dodania:</h2>
-						<p>Nazwa użytkownika</p>
-						<p>Użytkownik może zagrać jako Gość</p>
-						<p>Rekord użytkownika</p>
-						<p>Najlepszy zawodnik użytkownika</p>
-						<p>Wszystkie bramki użytkownika</p>
-						<p>Najlepszy globalny użytkownik</p>
-						<Link
-							href="/game"
-							className="bg-green-300 text-color-dark p-3 inline-block mt-4">
+					<div className="flex justify-center items-center">
+						<Link href="/game" className="game-btn">
 							Graj
 						</Link>
-						<Button onClick={() => signOut()}>Wyloguj się</Button>
-					</>
-				) : (
-					<></>
-				)}
-			</div>
-		</>
+					</div>
+				</>
+			) : (
+				<></>
+			)}
+		</div>
 	)
 }
 

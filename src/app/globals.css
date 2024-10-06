@@ -5,15 +5,39 @@
 :root {
 	--color-dark: #161616;
 	--color-white: #fff;
-	--color-main: #2b99c1;
+	/* --color-main: #2b99c1; */
+	--color-main: #1dc563;
 }
 
 body {
+	color: var(--color-white);
+	background-image: url("/img/background-barcelona.jpg");
+	background-image: url("/img/background-madrid.jpg");
+	background-image: url("/img/background.jpg");
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	z-index: 1;
+}
+
+.background {
+	position: relative;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
-	background-color: var(--color-dark);
-	color: var(--color-white);
 	height: 100vh;
+	width: 100%;
+	z-index: 2;
+}
+
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 1;
 }
 
 .button {
@@ -45,4 +69,15 @@ body {
 .sign-in-box:hover {
 	background-position: 200%0, 0 0;
 	transition-duration: 1.5s;
+}
+
+.game-btn {
+	width: 100%;
+	max-width: 300px;
+	text-align: center;
+	padding: 5px 10px;
+	background-color: var(--color-main);
+	box-shadow: 0 0 5px var(--color-main);
+	border-radius: 5px;
+	text-transform: uppercase;
 }

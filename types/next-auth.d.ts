@@ -10,7 +10,7 @@ declare module "next-auth" {
 			emailVerified: boolean | null
 			club: string | null
 			record: number | null
-			player: object | null
+			player: string | null
 		}
 	}
 
