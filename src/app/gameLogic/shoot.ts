@@ -1,18 +1,14 @@
-import {currentTargets, generateTargets} from "./targets"
+// function shoot(user: number | undefined, computer: number | undefined) {
+// 	const userShoot = user
+// 	const computerSave = computer
+// 	console.log(userShoot, "user")
+// 	console.log(computerSave, "computer")
 
-function shoot(number: number) {
-	const userShoot = number
-	const computerSave = currentTargets
-	console.log(userShoot, "user")
-	console.log(computerSave, "computer")
+// 	if (userShoot === computerSave) {
+// 		alert("You lose...")
+// 	} else {
+// 		alert("Nice shoot!")
+// 	}
+// }
 
-	if (userShoot === computerSave) {
-		alert("You lose...")
-	} else {
-		alert("Nice shoot!")
-	}
-
-	generateTargets()
-}
-
-export default shoot
+// export default shoot
