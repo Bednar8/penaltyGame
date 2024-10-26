@@ -36,7 +36,23 @@ export const ClubProvider = ({children}: {children: ReactNode}) => {
 				? clubs.filter((curClub) => curClub._id === clubId)
 				: clubs.filter((club) => club._id === session?.user?.club)
 
-			console.log(curClub[0])
+			const body = document.querySelector("body") as HTMLBodyElement
+			console.log(body)
+			// switch
+			switch (curClub[0].name) {
+				case "Manchester United":
+					body.style.backgroundImage = "url(/img/background.jpg)"
+					break
+				case "FC Barcelona":
+					body.style.backgroundImage = "url(/img/background-barcelona.jpg)"
+					break
+				case "Bayern Munich":
+					body.style.backgroundImage = "url(/img/background-madrid.jpg)"
+					// Expected output: "Mangoes and papayas are $2.79 a pound."
+					break
+				default:
+					console.log("Manchester United")
+			}
 			setCurrentClub(curClub[0])
 			setCurrentClubId(curClub[0]._id)
 		} catch (error) {

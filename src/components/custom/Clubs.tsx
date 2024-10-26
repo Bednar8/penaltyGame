@@ -43,7 +43,11 @@ function Clubs() {
 				))}
 			</div>
 			<div className="text-center">
-				<Button type="primary" onClick={() => handleSaveClub(currentClubId)}>
+				<Button
+					type="primary"
+					onClick={() => {
+						handleSaveClub(currentClubId)
+					}}>
 					Zapisz klub
 				</Button>
 			</div>

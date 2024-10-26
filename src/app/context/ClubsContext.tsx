@@ -14,7 +14,6 @@ const ClubsContext = createContext<ClubContextType | undefined>(undefined)
 
 export const ClubsProvider = ({children}: {children: ReactNode}) => {
 	const [clubId, setClubId] = useState<string | undefined>()
-
 	const handleSaveClub = async (clubId: string) => {
 		try {
 			const res = await fetch(
