@@ -27,6 +27,23 @@ export const ClubProvider = ({children}: {children: ReactNode}) => {
 	const {clubId} = useClubsContext()
 	const [currentClub, setCurrentClub] = useState<ClubType>()
 	const [currentClubId, setCurrentClubId] = useState<string>()
+	const body = document.querySelector("body") as HTMLBodyElement
+
+	const setBgByClub = (clubName: string) => {
+		switch (clubName) {
+			case "Manchester United":
+				body.style.backgroundImage = "url(/img/background.jpg)"
+				break
+			case "FC Barcelona":
+				body.style.backgroundImage = "url(/img/background-barcelona.jpg)"
+				break
+			case "Bayern Munich":
+				body.style.backgroundImage = "url(/img/background-madrid.jpg)"
+				break
+			default:
+				body.style.backgroundImage = "url(/img/background.jpg)"
+		}
+	}
 
 	const fetchCurrentClub = async () => {
 		try {
@@ -36,23 +53,7 @@ export const ClubProvider = ({children}: {children: ReactNode}) => {
 				? clubs.filter((curClub) => curClub._id === clubId)
 				: clubs.filter((club) => club._id === session?.user?.club)
 
-			const body = document.querySelector("body") as HTMLBodyElement
-			console.log(body)
-			// switch
-			switch (curClub[0].name) {
-				case "Manchester United":
-					body.style.backgroundImage = "url(/img/background.jpg)"
-					break
-				case "FC Barcelona":
-					body.style.backgroundImage = "url(/img/background-barcelona.jpg)"
-					break
-				case "Bayern Munich":
-					body.style.backgroundImage = "url(/img/background-madrid.jpg)"
-					// Expected output: "Mangoes and papayas are $2.79 a pound."
-					break
-				default:
-					console.log("Manchester United")
-			}
+			setBgByClub(curClub[0].name)
 			setCurrentClub(curClub[0])
 			setCurrentClubId(curClub[0]._id)
 		} catch (error) {

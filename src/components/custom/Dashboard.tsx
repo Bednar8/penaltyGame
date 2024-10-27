@@ -20,6 +20,7 @@ const Dashboard = () => {
 	if (status === "loading") {
 		return <Spinner />
 	}
+
 	return (
 		<div className="z-20 relative h-full flex flex-col justify-between">
 			{session ? (
