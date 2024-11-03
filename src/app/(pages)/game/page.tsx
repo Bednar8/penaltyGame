@@ -50,7 +50,7 @@ const config = {
 	},
 }
 
-const game = new Phaser.Game(config)
+// const game = new Phaser.Game(config)
 
 export default function GamePage() {
 	// const {currentClub} = useClubContext()
