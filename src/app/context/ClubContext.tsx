@@ -17,6 +17,7 @@ interface ClubType {
 	_id: string // Typ dla _id
 	name: string
 	image: string
+	players: object[]
 }
 
 // Domyślne wartości kontekstu

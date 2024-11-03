@@ -4,7 +4,7 @@ import {useClubContext} from "@/src/app/context/ClubContext"
 import Player from "../ui/Player"
 import {usePlayerContext} from "@/src/app/context/PlayersContext"
 import Button from "../ui/Button"
-import {useEffect, useState} from "react"
+// import {useEffect, useState} from "react"
 
 interface PlayerType {
 	_id: string
@@ -12,6 +12,7 @@ interface PlayerType {
 	image: string
 	onClick: (_id: string) => void
 }
+
 function Players() {
 	const {currentClub} = useClubContext()
 	const {handleChoosePlayer, handleSavePlayer, currentPlayerId} =
