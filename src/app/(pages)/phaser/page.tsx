@@ -80,3 +80,13 @@
 // 		</div>
 // 	)
 // }
+
+export default function PhaserPage() {
+	// const {data: session} = useSession()
+
+	// if (!session) {
+	// 	return <p>Proszę się zalogować, aby zmienić klub.</p>
+	// }
+
+	return <div className="flex flex-col h-full">text</div>
+}
