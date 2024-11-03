@@ -1,9 +1,10 @@
 "use client"
 
 import Clubs from "@/src/components/custom/Clubs"
-import {signOut, useSession} from "next-auth/react"
-import Link from "next/link"
-import {useEffect, useState} from "react"
+// import {signOut, useSession} from "next-auth/react"
+import {useSession} from "next-auth/react"
+// import Link from "next/link"
+// import {useEffect, useState} from "react"
 
 export default function ClubsPage() {
 	const {data: session} = useSession()

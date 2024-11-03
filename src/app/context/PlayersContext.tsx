@@ -2,9 +2,9 @@
 
 // import {useSession} from "next-auth/react"
 import {createContext, useState, ReactNode, useContext, useEffect} from "react"
-import {fetchClubs} from "../api/fetch/fetchClubs"
+// import {fetchClubs} from "../api/fetch/fetchClubs"
 import {useSession} from "next-auth/react"
-import {useClubsContext} from "./ClubsContext"
+// import {useClubsContext} from "./ClubsContext"
 import {fetchPlayers} from "../api/fetch/fetchPlayers"
 
 // Typy dla kontekstu

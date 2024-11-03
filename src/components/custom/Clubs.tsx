@@ -2,21 +2,21 @@
 
 import {useQuery} from "@tanstack/react-query"
 import {ClubType} from "@/types/club"
-import {useEffect, useState} from "react"
+// import {useEffect, useState} from "react"
 import {fetchClubs} from "@/src/app/api/fetch/fetchClubs"
 import Club from "../ui/Club"
-import {useSession} from "next-auth/react"
+// import {useSession} from "next-auth/react"
 import {useClubsContext} from "@/src/app/context/ClubsContext"
-import Link from "next/link"
+// import Link from "next/link"
 import {useClubContext} from "@/src/app/context/ClubContext"
 import Button from "../ui/Button"
 import Spinner from "../ui/Spinner"
 
 function Clubs() {
-	const {data: session} = useSession()
+	// const {data: session} = useSession()
 	// const [currentClub, setCurrentClub] = useState(session?.user?.club)
-	const {currentClub, handleChooseClub, currentClubId} = useClubContext()
-	const {clubId, handleSaveClub} = useClubsContext()
+	const {handleChooseClub, currentClubId} = useClubContext()
+	const {handleSaveClub} = useClubsContext()
 	const {
 		data: clubs,
 		isLoading,

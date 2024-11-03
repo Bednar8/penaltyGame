@@ -2,10 +2,10 @@
 
 import {useClubContext} from "@/src/app/context/ClubContext"
 import {usePlayerContext} from "@/src/app/context/PlayersContext"
-import {signOut, useSession} from "next-auth/react"
-import Image from "next/image"
+import {useSession} from "next-auth/react"
+// import Image from "next/image"
 import Link from "next/link"
-import Button from "../ui/Button"
+// import Button from "../ui/Button"
 import Spinner from "../ui/Spinner"
 import CurrentClub from "./CurrentClub"
 import CurrentPlayer from "./CurrentPlayer"

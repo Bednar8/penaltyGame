@@ -1,10 +1,10 @@
 "use client"
 
-import Clubs from "@/src/components/custom/Clubs"
+// import Clubs from "@/src/components/custom/Clubs"
 import Players from "@/src/components/custom/Players"
 import Heading from "@/src/components/ui/Heading"
-import {signOut, useSession} from "next-auth/react"
-import Link from "next/link"
+import {useSession} from "next-auth/react"
+// import Link from "next/link"
 // import {useEffect, useState} from "react"
 
 export default function ClubsPage() {

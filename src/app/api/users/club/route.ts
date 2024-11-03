@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server"
 import client from "../../../../../lib/db" // Ścieżka do pliku db.ts
-import {MongoClient, ObjectId} from "mongodb"
+import {MongoClient} from "mongodb"
 import {getServerSession} from "next-auth/next"
 import {authOptions} from "../../../../../lib/authOptions" // Import konfiguracji NextAuth
 

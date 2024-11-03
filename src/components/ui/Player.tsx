@@ -1,6 +1,6 @@
 import {usePlayerContext} from "@/src/app/context/PlayersContext"
 import Image from "next/image"
-import {useEffect} from "react"
+// import {useEffect} from "react"
 interface ClubProps {
 	id: string
 	name: string
